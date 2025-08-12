@@ -1,0 +1,4 @@
+        .review-container{
+            max-height: 350px; /* Giới hạn chiều cao */
+            overflow-y: auto; /* Scroll dọc khi quá dài */
+        }
