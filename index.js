@@ -105,7 +105,17 @@ document.getElementById('btnCheck').addEventListener('click', () => {
     document.getElementById('result-text').innerHTML = resultHTML;
 });
 
-// Gắn sự kiện input
+document.getElementById('folderInput').addEventListener('change', function () {
+    let count = this.files.length;
+    document.getElementById('folderCount').textContent = count ? `${count} file ảnh ký được chọn` : '';
+});
+
+// document.getElementById('exInput').addEventListener('change', function() {
+//     let name = this.files.length ? this.files[0].name : '';
+//     document.getElementById('fileName').textContent = name;
+// });
+
+
 [maNVInput, cccdInput, idHisInput, hoTenInput].forEach(input => {
     input.addEventListener('input', updateReview);
 });

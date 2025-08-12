@@ -7,6 +7,7 @@
     <title>Nhập & Review Nhân viên</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
 <body class="bg-light">
@@ -51,17 +52,29 @@
                             <textarea class="form-control" id="hoTen" rows="4"
                                 placeholder="Nhập mỗi họ tên trên một dòng..."></textarea>
                         </div>
-
                         <div class="mb-3">
-                            <label class="form-label">Chọn thư mục ảnh chữ ký</label>
-                            <input type="file" id="folderInput" webkitdirectory directory multiple>
+                            <label class="form-label fw-bold">Chọn thư mục ảnh chữ ký</label><br>
+                            <label class="btn btn-primary">
+                                      <i class="bi bi-folder-fill me-1"></i> Chọn thư mục
+                                <input type="file" id="folderInput" webkitdirectory directory multiple hidden>
+                            </label>
+                            <span id="folderCount" class="ms-2 text-muted"></span>
                         </div>
 
-                        <button type="button" class="btn btn-primary w-100" id="btnCheck">Gửi</button>
+                        <!-- <div class="mb-3">
+                            <label class="form-label fw-bold">Sakura query excel file</label><br>
+                            <label class="btn btn-success">
+                                Chọn file Excel
+                                <input type="file" id="exInput" hidden>
+                            </label>    
+                            <span id="fileName" class="ms-2 text-muted"></span>
+                        </div> -->
+
+                        <button type="button" class="btn btn-warning w-100" id="btnCheck">Gửi</button>
                     </div>
                 </div>
 
-                
+
             </div>
 
             <!-- Cột review dữ liệu -->
@@ -97,18 +110,31 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
-            <!-- Card kết quả -->
-           <div class="card shadow-sm mt-3">
-                <div class="card-body">
-                    <h4 class="card-title mb-3">Kết quả</h4>
-                    <div id="result-text"></div>
+                <!-- Card kết quả -->
+                <div class="card shadow-sm mt-3">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Kết quả</h4>
+                        <div id="result-text" style="max-height: 300px; overflow-y: auto;"></div>
+                    </div>
                 </div>
-            </div>     
             </div>
         </div>
+
+        
     </div>
+<footer class="bg-dark text-white py-3 mt-4">
+    <div class="container text-center">
+        <p class="mb-1">&copy; 2025 ISOFH. All rights reserved.</p>
+        <small>Designed & Developed by Nguyen Ho Ngoc Huy</small>
+        <div class="mt-2">
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+        </div>
+    </div>
+</footer>
 
     <script src="index.js"></script>
     <script src="uploader.js"></script>
