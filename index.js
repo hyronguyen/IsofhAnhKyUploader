@@ -185,6 +185,44 @@ document.getElementById('folderInput').addEventListener('change', function () {
 //     document.getElementById('fileName').textContent = name;
 // });
 
+function exportData() {
+    const data = {
+        maNhanVien: document.getElementById('maNhanVien').value.trim(),
+        cccd: document.getElementById('cccd').value.trim(),
+        idHis: document.getElementById('idHis').value.trim(),
+        hoTen: document.getElementById('hoTen').value.trim()
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "du_lieu_nhap.json";
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            document.getElementById('maNhanVien').value = data.maNhanVien || "";
+            document.getElementById('cccd').value = data.cccd || "";
+            document.getElementById('idHis').value = data.idHis || "";
+            document.getElementById('hoTen').value = data.hoTen || "";
+            updateReview();
+        } catch (err) {
+            alert("File không hợp lệ!");
+        }
+    };
+    reader.readAsText(file);
+}
+
 
 [maNVInput, cccdInput, idHisInput, hoTenInput].forEach(input => {
     input.addEventListener('input', updateReview);
